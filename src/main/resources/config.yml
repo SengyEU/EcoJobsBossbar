@@ -1,0 +1,17 @@
+# Bossbar ktery se zobrazi pri progressu v praci - placeholdery: %level%, %jobname%, %xp%, %maxxp%, %amount, %maxlevel%
+progress: '<#3690fa>ʟᴇᴠᴇʟ: <#9bd6f9>%level%<#3690fa>/<#9bd6f9>%maxlevel% <#3690fa>ᴘʀáᴄᴇ: <#9bd6f9>%jobname% <#3690fa>ᴘᴏsᴛᴜᴘ: <#9bd6f9>%xp%<#3690fa>/<#9bd6f9>%maxxp% <#3690fa>(<#9bd6f9>+%amount%<#3690fa>)'
+# Bossbar ktery se zobrazi pri dosazeni maximalniho levelu - placeholdery: %jobname%, %maxlevel%
+progress_done: '%jobname% byla dokoncena %maxlevel%'
+# Za kolik sekund bossbar zmizi (v sekundach)
+timeout: 5
+#Barva bossbaru (pro zobrazeni zmen potreba rejoin) - barvy: BLUE, GREEN, PINK, PURPLE, RED, YELLOW, WHITE
+color: BLUE
+#Rozdeleni bossbaru (pro zobrazeni zmen potreba rejoin) - styly: SEGMENTED_20, SEGMENTED_12, SEGMENTED_10, SEGMENTED_6, SOLID
+style: SEGMENTED_20
+# Seznam hracu, kterym se bossbar nezobrazuje
+disabled: []
+# Ruzne zpravy ktere se posilaji pri pouziti commandu
+reload_message: "<gradient:#55FFFF:#FFFFFF><bold>ɢᴀᴍᴇᴅʀᴇᴀᴍs</bold></gradient> <gray>» <#66ef0c>ᴘʟᴜɢɪɴ ʙʏʟ ʀᴇʟᴏᴀᴅɴᴜᴛý!"
+noperm: "<gradient:#55FFFF:#FFFFFF><bold>ɢᴀᴍᴇᴅʀᴇᴀᴍs</bold></gradient> <gray>» <#f40c0c>ɴᴀ ᴛᴏᴛᴏ ɴᴇᴍáš ᴘᴇʀᴍɪsᴇ!"
+toggle_yes: "<gradient:#55FFFF:#FFFFFF><bold>ɢᴀᴍᴇᴅʀᴇᴀᴍs</bold></gradient> <gray>» <#9bd6f9>ᴢᴏʙʀᴀᴢɪᴛ ᴘʀᴏɢʀᴇss ʙᴀʀ: <#66ef0c>ᴀɴᴏ"
+toggle_no: "<gradient:#55FFFF:#FFFFFF><bold>ɢᴀᴍᴇᴅʀᴇᴀᴍs</bold></gradient> <gray>» <#9bd6f9>ᴢᴏʙʀᴀᴢɪᴛ ᴘʀᴏɢʀᴇss ʙᴀʀ: <#fd3434>ɴᴇ"

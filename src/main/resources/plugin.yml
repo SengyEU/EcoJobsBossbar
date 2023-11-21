@@ -1,0 +1,8 @@
+name: EcoJobsBossbar
+version: '${project.version}'
+main: eu.sengy.ecojobsbossbar.EcoJobsBossbar
+api-version: '1.20'
+depend: [EcoJobs]
+commands:
+  ecojobsbossbar:
+    description: Default command
