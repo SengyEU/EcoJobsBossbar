@@ -79,6 +79,8 @@ public class JobLevelEvent implements Listener {
                         .replace("%amount%",String.valueOf(amount))
                         .replace("%maxlevel%",String.valueOf(maxLevel))
                 ));
+                b.setColor(color());
+                b.setStyle(style());
                 b.setProgress(progress);
                 b.setVisible(true);
             }

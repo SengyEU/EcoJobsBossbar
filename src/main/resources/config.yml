@@ -4,9 +4,9 @@ progress: '<#3690fa>ʟᴇᴠᴇʟ: <#9bd6f9>%level%<#3690fa>/<#9bd6f9>%maxlevel%
 progress_done: '%jobname% byla dokoncena %maxlevel%'
 # Za kolik sekund bossbar zmizi (v sekundach)
 timeout: 5
-#Barva bossbaru (pro zobrazeni zmen potreba rejoin) - barvy: BLUE, GREEN, PINK, PURPLE, RED, YELLOW, WHITE
+# Barva bossbaru - barvy: BLUE, GREEN, PINK, PURPLE, RED, YELLOW, WHITE
 color: BLUE
-#Rozdeleni bossbaru (pro zobrazeni zmen potreba rejoin) - styly: SEGMENTED_20, SEGMENTED_12, SEGMENTED_10, SEGMENTED_6, SOLID
+# Rozdeleni bossbaru - styly: SEGMENTED_20, SEGMENTED_12, SEGMENTED_10, SEGMENTED_6, SOLID
 style: SEGMENTED_20
 # Seznam hracu, kterym se bossbar nezobrazuje
 disabled: []
