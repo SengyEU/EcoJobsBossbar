@@ -21,10 +21,10 @@ public class MainCommand implements CommandExecutor {
                 if(sender.hasPermission("ecojobsbossbar.reload")){
                     pl.reloadConfig();
                     pl.config = pl.getConfig();
-                    sender.sendMessage(MMesage.convertToString(pl.config.getString("reload_message")));
+                    sender.sendMessage(Colors.convertHex(pl.config.getString("reload_message")));
                 }
                 else {
-                    sender.sendMessage(MMesage.convertToString(pl.config.getString("noperm")));
+                    sender.sendMessage(Colors.convertHex(pl.config.getString("noperm")));
                 }
             }
             else if(args[0].equalsIgnoreCase("toggle")){
@@ -32,17 +32,17 @@ public class MainCommand implements CommandExecutor {
 
                 if(!disabledPlayers.contains(sender.getName())){
                     disabledPlayers.add(sender.getName());
-                    sender.sendMessage(MMesage.convertToString(pl.config.getString("toggle_no")));
+                    sender.sendMessage(Colors.convertHex(pl.config.getString("toggle_no")));
                 }
                 else {
                     disabledPlayers.remove(sender.getName());
-                    sender.sendMessage(MMesage.convertToString(pl.config.getString("toggle_yes")));
+                    sender.sendMessage(Colors.convertHex(pl.config.getString("toggle_yes")));
                 }
                 pl.getConfig().set("disabled",disabledPlayers);
                 pl.saveConfig();
             }
             else {
-                sender.sendMessage(MMesage.convertToString(pl.config.getString("unknown_subcommand")));
+                sender.sendMessage(Colors.convertHex(pl.config.getString("unknown_subcommand")));
             }
         }
 
