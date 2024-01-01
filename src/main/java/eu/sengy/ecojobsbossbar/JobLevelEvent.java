@@ -66,14 +66,18 @@ public class JobLevelEvent implements Listener {
 
             double progress = xp / maxXp;
 
+            if(progress > 1){
+                progress = 1;
+            }
+
             if (level != job.getMaxLevel()) {
                 cooldowns.put(p.getName(), pl.config.getInt("timeout"));
                 b.setTitle(Colors.convertHex(pl.config.getString("progress")
                         .replace("%level%", String.valueOf(level))
                         .replace("%jobname%", name)
-                        .replace("%xp%", String.valueOf(xp))
-                        .replace("%maxxp%", String.valueOf(maxXp))
-                        .replace("%amount%", String.valueOf(amount))
+                        .replace("%xp%", String.valueOf(Math.round(xp * 10.0) / 10.0))
+                        .replace("%maxxp%", String.valueOf(Math.round(maxXp * 10.0) / 10.0))
+                        .replace("%amount%", String.valueOf(Math.round(amount * 10.0) / 10.0))
                         .replace("%maxlevel%", String.valueOf(maxLevel))
                 ));
                 b.setColor(BarColor.valueOf(pl.config.getString("color")));
