@@ -15,22 +15,15 @@ public final class EcoJobsBossbar extends JavaPlugin {
     FileConfiguration config = this.getConfig();
 
 
-
     @Override
     public void onEnable() {
 
         saveDefaultConfig();
 
-        this.getCommand("ecojobsbossbar").setExecutor(new MainCommand(this));
-        this.getCommand("ecojobsbossbar").setTabCompleter(new MainTabComplete());
+        getCommand("ecojobsbossbar").setExecutor(new MainCommand(this));
 
         getServer().getPluginManager().registerEvents(new JobLevelEvent(this), this);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-            @Override
-            public void run() {
-                cooldowns.replaceAll((k,v) -> v-1);
-            }
-        }, 0, 20);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> cooldowns.replaceAll((k, v) -> v - 1), 0, 20);
     }
 
     @Override

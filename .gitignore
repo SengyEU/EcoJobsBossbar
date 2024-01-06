@@ -5,6 +5,8 @@
 *.ipr
 *.iws
 
+script.py
+
 # IntelliJ
 out/
 

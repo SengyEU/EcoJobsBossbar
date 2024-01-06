@@ -21,19 +21,19 @@ import static eu.sengy.ecojobsbossbar.EcoJobsBossbar.cooldowns;
 
 public class JobLevelEvent implements Listener {
 
-    private EcoJobsBossbar pl;
+    private final EcoJobsBossbar pl;
 
-    public JobLevelEvent(EcoJobsBossbar pl){
+    public JobLevelEvent(EcoJobsBossbar pl) {
         this.pl = pl;
     }
 
     @EventHandler
-    public void onJobExp(PlayerJobExpGainEvent e){
+    public void onJobExp(PlayerJobExpGainEvent e) {
 
         Player p = e.getPlayer();
         List<String> disabledPlayers = new ArrayList<>(pl.config.getStringList("disabled"));
 
-        if(!disabledPlayers.contains(p.getName())) {
+        if (!disabledPlayers.contains(p.getName())) {
 
             BossBar b = bossBars.get(p.getName());
 
@@ -66,7 +66,7 @@ public class JobLevelEvent implements Listener {
 
             double progress = xp / maxXp;
 
-            if(progress > 1){
+            if (progress > 1) {
                 progress = 1;
             }
 
@@ -100,17 +100,17 @@ public class JobLevelEvent implements Listener {
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent e){
-        if(!bossBars.containsKey(e.getPlayer().getName())){
-            BossBar b = Bukkit.createBossBar("",BarColor.valueOf(pl.config.getString("color")),BarStyle.valueOf(pl.config.getString("style")));
+    public void onJoin(PlayerJoinEvent e) {
+        if (!bossBars.containsKey(e.getPlayer().getName())) {
+            BossBar b = Bukkit.createBossBar("", BarColor.valueOf(pl.config.getString("color")), BarStyle.valueOf(pl.config.getString("style")));
             b.setVisible(false);
             b.addPlayer(e.getPlayer());
-            bossBars.put(e.getPlayer().getName(),b);
+            bossBars.put(e.getPlayer().getName(), b);
         }
     }
 
     @EventHandler
-    public void onLeave(PlayerQuitEvent e){
+    public void onLeave(PlayerQuitEvent e) {
         bossBars.remove(e.getPlayer().getName());
     }
 

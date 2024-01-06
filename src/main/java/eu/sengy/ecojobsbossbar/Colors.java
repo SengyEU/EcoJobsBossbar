@@ -12,7 +12,7 @@ public class Colors {
         final Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
 
         Matcher match = pattern.matcher(text);
-        while (match.find()){
+        while (match.find()) {
             String color = text.substring(match.start(), match.end());
             text = text.replace(color, ChatColor.of(color) + "");
             match = pattern.matcher(text);
