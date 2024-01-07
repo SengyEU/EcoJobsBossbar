@@ -49,6 +49,7 @@ public class EcoJobsListener implements Listener {
             double amount = Math.round(e.getAmount() * 10.0) / 10.0;
             double xp = Math.round((EcoJobsAPI.getJobXP(p, job) + amount) * 10.0) / 10.0;
             double maxXp = Math.round(EcoJobsAPI.getJobXPRequired(p, job) * 10.0) / 10.0;
+            String maxXpstr = String.valueOf(maxXp);
             int maxLevel = job.getMaxLevel();
 
             int level = EcoJobsAPI.getJobLevel(p, job);
@@ -61,6 +62,11 @@ public class EcoJobsListener implements Listener {
 
             double progress = xp / maxXp;
 
+            if(maxLevel == level){
+                maxXpstr = "∞";
+                progress = 1;
+            }
+
             if (progress > 1) progress = 1;
 
             cooldowns.put(p.getName(), Configs.getConfig().getInt("timeout"));
@@ -68,7 +74,7 @@ public class EcoJobsListener implements Listener {
                     .replace("%level%", String.valueOf(level))
                     .replace("%jobname%", name)
                     .replace("%xp%", String.valueOf(xp))
-                    .replace("%maxxp%", String.valueOf(maxXp))
+                    .replace("%maxxp%", maxXpstr)
                     .replace("%amount%", String.valueOf(amount))
                     .replace("%maxlevel%", String.valueOf(maxLevel))
             ));
