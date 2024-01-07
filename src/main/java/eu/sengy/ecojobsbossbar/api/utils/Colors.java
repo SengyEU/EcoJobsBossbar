@@ -1,4 +1,4 @@
-package eu.sengy.ecojobsbossbar;
+package eu.sengy.ecojobsbossbar.api.utils;
 
 import net.md_5.bungee.api.ChatColor;
 

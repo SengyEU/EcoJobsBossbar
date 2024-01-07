@@ -1,7 +1,5 @@
 # Bossbar ktery se zobrazi pri progressu v praci - placeholdery: %level%, %jobname%, %xp%, %maxxp%, %amount, %maxlevel%
 progress: "#3690faʟᴇᴠᴇʟ: #9bd6f9%level%#3690fa/#9bd6f9%maxlevel% #3690faᴘʀáᴄᴇ: #9bd6f9%jobname% #3690faᴘᴏsᴛᴜᴘ: #9bd6f9%xp%#3690fa/#9bd6f9%maxxp% #3690fa(#9bd6f9+%amount%#3690fa)"
-# Bossbar ktery se zobrazi pri dosazeni maximalniho levelu - placeholdery: %jobname%, %maxlevel%
-progress_done: "#3690faᴘʀáᴄᴇ: #9bd6f9%jobname% #3690faʙʏʟᴀ ᴅᴏᴋᴏɴčᴇɴᴀ! #3690faʟᴇᴠᴇʟ: #9bd6f9%maxlevel%"
 # Za kolik sekund bossbar zmizi (v sekundach)
 timeout: 5
 # Barva bossbaru - barvy: BLUE, GREEN, PINK, PURPLE, RED, YELLOW, WHITE
