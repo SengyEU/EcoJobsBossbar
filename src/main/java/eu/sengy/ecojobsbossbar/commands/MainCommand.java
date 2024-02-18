@@ -1,6 +1,5 @@
 package eu.sengy.ecojobsbossbar.commands;
 
-import eu.sengy.ecojobsbossbar.EcoJobsBossbar;
 import eu.sengy.ecojobsbossbar.api.config.Configs;
 import eu.sengy.ecojobsbossbar.api.utils.Colors;
 import org.bukkit.command.Command;
@@ -14,20 +13,14 @@ import java.util.List;
 
 public class MainCommand implements TabExecutor {
 
-    private final EcoJobsBossbar pl;
-
-    public MainCommand(EcoJobsBossbar pl){
-        this.pl = pl;
-    }
-
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+    public List<String> onTabComplete(CommandSender s, Command cmd, String label, String[] args) {
 
         if (args.length == 1) {
             List<String> arguments = new ArrayList<>();
             arguments.add("toggle");
 
-            if (sender.hasPermission("ecojobsbossbar.reload")) {
+            if (s.hasPermission("ecojobsbossbar.reload")) {
                 arguments.add("reload");
             }
 
@@ -41,21 +34,26 @@ public class MainCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (args.length == 1) {
-            if (args[0].equalsIgnoreCase("reload")) {
-                if (sender.hasPermission("ecojobsbossbar.reload")) {
-                    try {
-                        Configs.reloadConfig();
-                        Configs.reloadMessages();
-                    } catch (InvalidConfigurationException | IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                    sender.sendMessage(Colors.convertHex(Configs.getMessages().getString("reload_message")));
-                } else {
+        if (args.length != 1){
+            sender.sendMessage(Colors.convertHex(Configs.getMessages().getString("unknown_subcommand")));
+            return false;
+        };
+        switch (args[0].toLowerCase()) {
+            case "reload" -> {
+                if (!sender.hasPermission("ecojobsbossbar.reload")) {
                     sender.sendMessage(Colors.convertHex(Configs.getMessages().getString("noperm")));
+                    return false;
                 }
-            } else if (args[0].equalsIgnoreCase("toggle")) {
-                List<String> disabledPlayers = Configs.getMessages().getStringList("disabled");
+                try {
+                    Configs.reloadConfig();
+                    Configs.reloadMessages();
+                } catch (InvalidConfigurationException | IOException e) {
+                    throw new RuntimeException(e);
+                }
+                sender.sendMessage(Colors.convertHex(Configs.getMessages().getString("reload_message")));
+            }
+            case "toggle" -> {
+                List<String> disabledPlayers = Configs.getConfig().getStringList("disabled");
 
                 if (!disabledPlayers.contains(sender.getName())) {
                     disabledPlayers.add(sender.getName());
@@ -70,9 +68,8 @@ public class MainCommand implements TabExecutor {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            } else {
-                sender.sendMessage(Colors.convertHex(Configs.getMessages().getString("unknown_subcommand")));
             }
+            default -> sender.sendMessage(Colors.convertHex(Configs.getMessages().getString("unknown_subcommand")));
         }
 
         return true;
